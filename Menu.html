@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu</title>
     <style>
+        header,
+        footer {
+            background-color: #d7bd8f;
+            padding: 12px;
+            text-align: center;
+            font-size: 24px;
+            font-family: Arial;
+            color: white;
+        }
+
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -14,7 +24,7 @@
         }
 
         .navbar {
-            background-color: #e8d8c3;
+            background-color: #fbf7f5;
             width: 98%;
             margin: px auto;
             padding: 10px;
@@ -36,7 +46,7 @@
 
         /* Hover effects */
         .navbar a:hover {
-            color: white;
+            color: black;
             /* text becomes white */
             border-bottom: 2px solid #947c4b;
             /* underline with same brown color */
@@ -122,10 +132,46 @@
             font-size: 16px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        .menu-slider {
+            display: flex;
+            overflow-x: scroll;
+            gap: 15px;
+            padding: 20px 20px 10px 20px;
+            margin-top: 15px;
+            scroll-behavior: smooth;
+            background: #fff;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .menu-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-slider div {
+            min-width: 140px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 20px;
+            background: #e8d8c3;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            scroll-snap-align: start;
+        }
+
+        .menu-slider div.active-tab {
+            border-bottom: 3px solid #c2916e;
+            background: #d7c4a8;
+            color: #35251b;
+        }
     </style>
 
 <body>
+    <header>Bakery Delight</header>
     <div class="navbar">
+        <a href="index.html">Home</a>
         <a href="AboutUs.html">About Us</a>
         <a href="Menu.html">Menu</a>
         <a href="Cart.html">Cart</a>
@@ -145,6 +191,15 @@
     <div class="search-box">
         <input type="text" placeholder="Search for donuts, pastries, cakes..." id="searchInput" />
     </div>
+    <div class="menu-slider" id="menuTabs">
+        <div data-target="donuts-section" class="active-tab">Donuts</div>
+        <div data-target="pastries-section">Pastries</div>
+        <div data-target="drinks-section">Drinks</div>
+        <div data-target="cakes-section">Cakes</div>
+        <div data-target="breads-section">Breads</div>
+        <div data-target="specials-section">Specials</div>
+    </div>
+
 </body>
 <script>
     const slides = document.querySelectorAll('.slide');
