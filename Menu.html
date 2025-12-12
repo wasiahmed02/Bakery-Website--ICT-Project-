@@ -328,4 +328,18 @@
 
     startSlider();
     showSlide(currentSlide);
+          // Tabs & Scroll
+      const menuTabs = document.getElementById('menuTabs');
+      const tabs = menuTabs.querySelectorAll('div');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetElement = document.getElementById(tab.dataset.target);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            tabs.forEach(t => t.classList.remove('active-tab'));
+            tab.classList.add('active-tab');
+          }
+        });
+      });
+
 </script>
