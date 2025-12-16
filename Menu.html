@@ -25,8 +25,8 @@
 
     .navbar {
       background-color: #fbf7f5;
-      width: 98%;
-      margin: px auto;
+      width: 95%;
+      margin:  auto;
       padding: 10px;
       border-radius: 15px;
       text-align: center;
@@ -230,6 +230,16 @@
     .product-card button:hover {
       background: #b38d6a;
     }
+     .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .fade-section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 
 <body>
@@ -399,7 +409,27 @@
         tabs.forEach(t => t.classList.remove('active-tab'));
         tab.classList.add('active-tab');
       }
-    });
-  });
-
+       });
+      });
+       const productCards = document.querySelectorAll('.product-card');
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', () => {
+        const val = searchInput.value.toLowerCase();
+        productCards.forEach(card => {
+          const title = card.querySelector('h4').textContent.toLowerCase();
+          card.style.display = title.includes(val) ? 'flex' : 'none';
+        });
+      });
+      // Fade-in sections
+      const fadeSections = document.querySelectorAll('.category-block, .items-grid, .section-title');
+      const reveal = () => {
+        fadeSections.forEach(sec => {
+          if (!sec.classList.contains('show')) {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) sec.classList.add('show');
+          }
+        });
+      };
+      window.addEventListener('scroll', reveal);
+      reveal();
 </script>
