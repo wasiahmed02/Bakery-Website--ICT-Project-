@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <title> Cart</title>
@@ -178,35 +179,35 @@
             <button class="checkout-btn">Proceed to Checkout</button>
         </div>
     </div>
-    
+
 </body>
- <script>
-        // Load cart from localStorage
-        const cart = JSON.parse(localStorage.getItem('bakeryCart')) || [];
-        const cartItemsBody = document.getElementById('cartItemsBody');
-        const cartTotalDisplay = document.getElementById('cartTotal');
-        const emptyCart = document.getElementById('emptyCart');
-        const cartFooter = document.getElementById('cartFooter');
+<script>
+    // Load cart from localStorage
+    const cart = JSON.parse(localStorage.getItem('bakeryCart')) || [];
+    const cartItemsBody = document.getElementById('cartItemsBody');
+    const cartTotalDisplay = document.getElementById('cartTotal');
+    const emptyCart = document.getElementById('emptyCart');
+    const cartFooter = document.getElementById('cartFooter');
 
-        function renderCart() {
-            cartItemsBody.innerHTML = '';
-            let total = 0;
+    function renderCart() {
+        cartItemsBody.innerHTML = '';
+        let total = 0;
 
-            if (cart.length === 0) {
-                emptyCart.style.display = 'block';
-                cartFooter.style.display = 'none';
-                return;
-            }
+        if (cart.length === 0) {
+            emptyCart.style.display = 'block';
+            cartFooter.style.display = 'none';
+            return;
+        }
 
-            emptyCart.style.display = 'none';
-            cartFooter.style.display = 'flex';
+        emptyCart.style.display = 'none';
+        cartFooter.style.display = 'flex';
 
-            cart.forEach(item => {
-                const subtotal = item.price * item.quantity;
-                total += subtotal;
+        cart.forEach(item => {
+            const subtotal = item.price * item.quantity;
+            total += subtotal;
 
-                const row = document.createElement('tr');
-                row.innerHTML = `
+            const row = document.createElement('tr');
+            row.innerHTML = `
                     <td>${item.name}</td>
                     <td>Rs.${item.price}</td>
                     <td>
@@ -219,39 +220,51 @@
                     <td>Rs.${subtotal}</td>
                     <td><button class="remove-btn" data-name="${item.name}">&times;</button></td>
                 `;
-                cartItemsBody.appendChild(row);
-            });
+            cartItemsBody.appendChild(row);
+        });
 
-            cartTotalDisplay.textContent = `Rs.${total}`;
+        cartTotalDisplay.textContent = `Rs.${total}`;
         // Buttons functionality
-            cartItemsBody.querySelectorAll('button').forEach(btn => {
-                const name = btn.dataset.name;
-                const action = btn.dataset.action;
+        cartItemsBody.querySelectorAll('button').forEach(btn => {
+            const name = btn.dataset.name;
+            const action = btn.dataset.action;
 
-                if (btn.classList.contains('remove-btn')) {
-                    btn.onclick = () => {
-                        const index = cart.findIndex(i => i.name === name);
-                        if (index > -1) cart.splice(index, 1);
+            if (btn.classList.contains('remove-btn')) {
+                btn.onclick = () => {
+                    const index = cart.findIndex(i => i.name === name);
+                    if (index > -1) cart.splice(index, 1);
+                    localStorage.setItem('bakeryCart', JSON.stringify(cart));
+                    renderCart();
+                };
+            } else if (action) {
+                btn.onclick = () => {
+                    const item = cart.find(i => i.name === name);
+                    if (item) {
+                        item.quantity += (action === 'increase' ? 1 : -1);
+                        if (item.quantity <= 0) {
+                            const idx = cart.findIndex(i => i.name === name);
+                            cart.splice(idx, 1);
+                        }
                         localStorage.setItem('bakeryCart', JSON.stringify(cart));
                         renderCart();
-                    };
-                } else if (action) {
-                    btn.onclick = () => {
-                        const item = cart.find(i => i.name === name);
-                        if (item) {
-                            item.quantity += (action === 'increase' ? 1 : -1);
-                            if (item.quantity <= 0) {
-                                const idx = cart.findIndex(i => i.name === name);
-                                cart.splice(idx, 1);
-                            }
-                            localStorage.setItem('bakeryCart', JSON.stringify(cart));
-                            renderCart();
-                        }
-                    };
-                }
-            });
-        }
+                    }
+                };
+            }
+        });
+    }
 
-        renderCart(); 
-            </script>
+    renderCart();
+    // Checkout button
+    const checkoutBtn = document.querySelector('.checkout-btn');
+    checkoutBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+        alert("Your order has been placed successfully!");
+        localStorage.removeItem('bakeryCart');
+        renderCart();
+    }); 
+</script>
+
 </html>
