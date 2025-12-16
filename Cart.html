@@ -178,6 +178,51 @@
             <button class="checkout-btn">Proceed to Checkout</button>
         </div>
     </div>
+    
 </body>
+ <script>
+        // Load cart from localStorage
+        const cart = JSON.parse(localStorage.getItem('bakeryCart')) || [];
+        const cartItemsBody = document.getElementById('cartItemsBody');
+        const cartTotalDisplay = document.getElementById('cartTotal');
+        const emptyCart = document.getElementById('emptyCart');
+        const cartFooter = document.getElementById('cartFooter');
 
+        function renderCart() {
+            cartItemsBody.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                emptyCart.style.display = 'block';
+                cartFooter.style.display = 'none';
+                return;
+            }
+
+            emptyCart.style.display = 'none';
+            cartFooter.style.display = 'flex';
+
+            cart.forEach(item => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>Rs.${item.price}</td>
+                    <td>
+                        <div class="qty">
+                            <button data-name="${item.name}" data-action="decrease">-</button>
+                            <span>${item.quantity}</span>
+                            <button data-name="${item.name}" data-action="increase">+</button>
+                        </div>
+                    </td>
+                    <td>Rs.${subtotal}</td>
+                    <td><button class="remove-btn" data-name="${item.name}">&times;</button></td>
+                `;
+                cartItemsBody.appendChild(row);
+            });
+
+            cartTotalDisplay.textContent = `Rs.${total}`;
+        }
+            </script>
 </html>
