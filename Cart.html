@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title> Cart</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f6efe6;
+            color: #543b27;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: #fff;
+            border-bottom: 1px solid #e8d8c3;
+        }
+
+        .cart-header h1 {
+            color: #c8a47e;
+            margin: 0;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #543b27;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: #e8d8c3;
+            transition: 0.2s;
+        }
+
+        .back-link:hover {
+            background: #d7c4a8;
+        }
+
+        .cart-container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e8d8c3;
+            text-align: left;
+        }
+
+        th {
+            background: #e8d8c3;
+            font-weight: 700;
+        }
+
+        td img {
+            width: 70px;
+            border-radius: 8px;
+        }
+
+        .qty {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .qty span {
+            display: block;
+            width: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .qty button {
+            background: #d7c4a8;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .qty button:hover {
+            background: #c2916e;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: red;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .remove-btn:hover {
+            transform: scale(1.2);
+            color: #a00;
+        }
+
+        .cart-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 700;
+            padding-top: 15px;
+            border-top: 2px solid #e8d8c3;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checkout-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 35px;
+            background: #c8a47e;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #b38d6a;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 1.2em;
+            color: #c2916e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cart-header">
+        <h1>Shopping Cart</h1>
+        <a href="Menu.html" class="back-link">← Continue Shopping</a>
+    </div>
+
+    <div class="cart-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cartItemsBody">
+            </tbody>
+        </table>
+
+        <p id="emptyCart" class="empty" style="display:none;">
+            Your cart is empty. Go back to <a href="Menu.html">menu</a> to add treats!
+        </p>
+
+        <div class="cart-footer" id="cartFooter">
+            <p>Grand Total: <span id="cartTotal">Rs.0</span></p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+</body>
+
+</html>
