@@ -1,248 +1,229 @@
-x<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<title>About Us - Bakery Delight</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background-color:#fff;
-}
-
-/* Header & Footer */
-header, footer{
-    background-color:#d7bd8f;
-    padding:20px;
-    text-align:center;
-    color:white;
-}
-
-/* Navbar */
-.navbar{
-    background-color:#fbf7f5;
-    width:95%;
-    margin:20px auto;
-    padding:12px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.navbar a{
-    margin:0 18px;
-    text-decoration:none;
-    color:#947c4b;
-    font-size:18px;
-}
-
-.navbar a:hover{
-    color:black;
-    border-bottom:2px solid #947c4b;
-}
-
-/* Hero */
-.hero{
-    width:85%;
-    margin:40px auto;
-    display:flex;
-    align-items:center;
-    gap:40px;
-}
-
-.hero img{
-    width:50%;
-    border-radius:20px;
-}
-
-.hero-text h1{
-    color:#947c4b;
-}
-
-.hero-text p{
-    font-size:18px;
-    line-height:1.6;
-}
-
-/* Section */
-.section{
-    width:85%;
-    margin:60px auto;
-}
-
-.section h2{
-    color:#947c4b;
-    margin-bottom:20px;
-}
-
-/* Story layout */
-.story{
-    display:flex;
-    gap:40px;
-    align-items:center;
-}
-
-.story img{
-    width:45%;
-    border-radius:15px;
-}
-
-.story p{
-    font-size:17px;
-    line-height:1.7;
-}
-
-/* Services */
-.services{
-    display:flex;
-    gap:30px;
-    justify-content:space-between;
-}
-
-.service-box{
-    background-color:#fbf7f5;
-    padding:20px;
-    border-radius:15px;
-    width:30%;
-}
-
-.service-box img{
-    width:100%;
-    border-radius:10px;
-}
-
-.service-box h3{
-    color:#947c4b;
-}
-
-/* Why choose us */
-.why ul{
-    font-size:17px;
-    line-height:2;
-}
-
-/* Team */
-.team-names{
-    text-align:center;
-}
-
-.team-names span{
-    display:inline-block;
-    margin:10px;
-    padding:12px 25px;
-    background-color:#fbf7f5;
-    border-radius:20px;
-    color:#947c4b;
-    font-weight:bold;
-}
-</style>
+    <title>About Us - Bakery Delight</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            font-size: 18px;
+        }
+        header,
+        footer {
+            background-color: #d7bd8f;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+        .navbar {
+            background-color: #fbf7f5;
+            width: 95%;
+            margin: 25px auto;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #947c4b;
+            font-size: 20px;
+        }
+        .navbar a:hover,
+        .navbar a.active {
+            color: black;
+            border-bottom: 2px solid #947c4b;
+        }
+        .hero {
+            width: 85%;
+            margin: 50px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text {
+            width: 55%;
+        }
+        .hero img {
+            width: 45%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        .hero-text h1 {
+            color: #947c4b;
+            font-size: 38px;
+        }
+        .hero-text p {
+            font-size: 25px;
+            line-height: 1.8;
+        }
+        .section {
+            width: 85%;
+            margin: 60px auto;
+        }
+        .section h2 {
+            color: #947c4b;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+        .story {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        .story img {
+            width: 45%;
+            border-radius: 15px;
+        }
+        .story p {
+            font-size: 25px;
+            line-height: 1.8;
+        }
+        .services {
+            display: flex;
+            gap: 30px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .service-box {
+            background-color: #fbf7f5;
+            padding: 25px;
+            border-radius: 15px;
+            width: 30%;
+            transition: transform 0.3s;
+        }
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+        .service-box img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: transparent;
+        }
+        .service-box h3 {
+            color: #947c4b;
+            font-size: 25px;           
+            margin-top: 15px;
+        }
+        .service-box p {
+            font-size: 25px;
+            
+            line-height: 1.7;
+        }
+        .why ul {
+            font-size: 25px; 
+            line-height: 2;
+        }
+        .team-names {
+            text-align: center;
+        }
+        .team-names span {
+            display: inline-block;
+            margin: 12px;
+            padding: 15px 30px;
+            background-color: #fbf7f5;
+            border-radius: 20px;
+            color: #947c4b;
+            font-weight: bold;
+            font-size: 25px;    
+        }
+    </style>
 </head>
-
 <body>
-
-<header>
-    <h1>Bakery Delight</h1>
-    <p>Passion Baked Into Every Detail 🍰</p>
-</header>
-
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="login.html">Login</a>
-    <a href="cart.html">Cart 🛒</a>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-    <div class="hero-text">
-        <h1>Welcome to Bakery Delight</h1>
-        <p>
-            Bakery Delight is a place where tradition meets creativity.
-            We believe that baking is not just about food, but about
-            creating moments of happiness, comfort, and togetherness.
-            Every product we make reflects our love for quality and care.
-        </p>
+    <header>
+        <h1>Bakery Delight</h1>
+        <p>Passion Baked Into Every Detail </p>
+    </header>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="login.html">Login</a>
+        <a href="cart.html">Cart 🛒</a>
+        <a href="about.html" class="active">About</a>
     </div>
-    <img src="bakery.jpg" alt="Bakery">
-</div>
-
-<!-- OUR STORY -->
-<div class="section">
-    <h2>Our Story</h2>
-    <div class="story">
-        <p>
-            Our journey began with a simple dream — to bring freshly baked
-            goods made with honesty and passion to our community.
-            From carefully selected ingredients to traditional baking
-            techniques, we ensure that every item meets the highest standards.
-            Over time, Bakery Delight has grown into a place trusted by families
-            for both everyday treats and special celebrations.
-        </p>
-        <img src="bread.jpg" alt="Fresh Bread">
-    </div>
-</div>
-
-<!-- SERVICES -->
-<div class="section">
-    <h2>What We Do</h2>
-    <div class="services">
-
-        <div class="service-box">
-            <img src="cake.jpg">
-            <h3>🎂 Cake Specialists</h3>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Bakery Delight</h1>
             <p>
-                We design and bake custom cakes for birthdays, weddings,
-                and special occasions. Each cake is carefully crafted
-                to combine beautiful design with rich flavor.
+                Bakery Delight is a place where tradition meets creativity.
+                We believe that baking is not just about food, but about
+                creating moments of happiness, comfort, and togetherness.
+                Every product we make reflects our love for quality and care.
             </p>
         </div>
-
-        <div class="service-box">
-            <img src="bread.jpg">
-            <h3>🥖 Bread Specialists</h3>
+        <img src="images/cakery.jpg" alt="Bakery Interior">
+    </div>
+    <div class="section">
+        <h2>Our Story</h2>
+        <div class="story">
             <p>
-                Our bread is baked fresh every day using traditional
-                methods. Soft inside and golden outside, perfect for
-                every meal.
+                Our journey began with a simple dream — to bring freshly baked
+                goods made with honesty and passion to our community.
+                From carefully selected ingredients to traditional baking
+                techniques, we ensure that every item meets the highest standards.
+                Over time, Bakery Delight has grown into a place trusted by families
+                for both everyday treats and special celebrations.
             </p>
         </div>
-
-        <div class="service-box">
-            <img src="bakery.jpg">
-            <h3>🤝 Customer Relations</h3>
-            <p>
-                We believe great service is just as important as great taste.
-                Our team ensures every customer feels welcome and satisfied.
-            </p>
+    </div>
+    <div class="section">
+        <h2>What We Do</h2>
+        <div class="services">
+            <div class="service-box">
+                <img src="images/donuts.jpg" alt="Custom Cakes">
+                <h3>Donut Specialist-Wasi Ahmed</h3>
+                <p>
+                    We design and bake custom cakes for birthdays, weddings,
+                    and special occasions. Each cake is carefully crafted
+                    to combine beautiful design with rich flavor.
+                </p>
+            </div>
+            <div class="service-box">
+                <img src="images/breads.jpg" alt="Fresh Bread">
+                <h3> Bread Specialist-Tania Zubair</h3>
+                <p>
+                    Our bread is baked fresh every day using traditional
+                    methods. Soft inside and golden outside, perfect for
+                    every meal.
+                </p>
+            </div>
+            <div class="service-box">
+                <img src="images/pastries.jpg" alt="Pastry Specialists">
+                <h3> Pastry Specialist-Maidah Asif</h3>
+                <p>
+                    Our pastry specialists create delicious croissants,
+                    tarts, and desserts using premium ingredients and
+                    expert techniques, ensuring perfect taste every time.
+                </p>
+            </div>
         </div>
-
     </div>
-</div>
-
-<!-- WHY US -->
-<div class="section why">
-    <h2>Why Choose Bakery Delight?</h2>
-    <ul>
-        <li>Freshly baked products every day</li>
-        <li>High-quality ingredients</li>
-        <li>Creative designs for special events</li>
-        <li>Friendly and professional customer service</li>
-        <li>Clean and welcoming environment</li>
-    </ul>
-</div>
-
-<!-- TEAM -->
-<div class="section">
-    <h2>Our Team</h2>
-    <div class="team-names">
-        <span>Maidah Asif</span>
-        <span>Tania Zubair</span>
-        <span>Wasi Ahmed</span>
+    <div class="section why">
+        <h2>Why Choose Bakery Delight?</h2>
+        <ul>
+            <li>Freshly baked products every day</li>
+            <li>High-quality ingredients</li>
+            <li>Creative designs for special events</li>
+            <li>Friendly and professional customer service</li>
+            <li>Clean and welcoming environment</li>
+        </ul>
     </div>
-</div>
-
-<footer>
-    © 2025 Bakery Delight | Made With Love
-</footer>
-
+    <div class="section">
+        <h2>Our Team</h2>
+        <div class="team-names">
+            <span>Maidah Asif</span>
+            <span>Tania Zubair</span>
+            <span>Wasi Ahmed </span>
+        </div>
+    </div>
+    <footer>
+        © 2025 Bakery Delight
+    </footer>
 </body>
 </html>
