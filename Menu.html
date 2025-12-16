@@ -57,93 +57,91 @@
     .hero-slider {
       width: 100%;
       height: 55vh;
-      position: relative;
       overflow: hidden;
-      margin-top: 10px;
-
-      /* Curved borders */
       border-radius: 16px;
-
-      /* Smooth hover animation */
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    /* Hover effect */
-    .hero-slider:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .hero-wrapper {
-      display: flex;
-      height: 100%;
       position: relative;
+
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-slider:hover {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
     }
 
 
-    /* Slides */
+
     .slide {
-      width: 100%;
+      min-width: 100%;
       height: 100%;
-      flex-shrink: 0;
-    }
-
-    /* Manual slide switching */
-    #slide1:checked~.hero-wrapper {
-      transform: translateX(0);
-    }
-
-    #slide2:checked~.hero-wrapper {
-      transform: translateX(-100%);
-    }
-
-    #slide3:checked~.hero-wrapper {
-      transform: translateX(-200%);
-    }
-
-    /* Auto sliding */
-    .hero-wrapper {
-      animation: autoSlide 4s infinite;
-    }
-
-    @keyframes autoSlide {
-
-      0%,
-      33% {
-        transform: translateX(0);
-      }
-
-      34%,
-      66% {
-        transform: translateX(-100%);
-      }
-
-      67%,
-      100% {
-        transform: translateX(-200%);
-      }
-    }
-
-    /* Pause on hover */
-    .hero-slider:hover .hero-wrapper {
-      animation-play-state: paused;
-    }
-
-    /* Controls */
-    .controls {
+      object-fit: cover;
       position: absolute;
-      bottom: 20px;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .hero-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(200, 164, 126, 0.8);
+      border: none;
+      color: #fff;
+      font-size: 30px;
+      padding: 8px 13px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 20;
+      transition: background 0.2s;
+    }
+
+    .hero-btn:hover {
+      background: rgba(179, 141, 106, 0.9);
+    }
+
+    .hero-btn.prev {
+      left: 20px;
+    }
+
+    .hero-btn.next {
       right: 20px;
     }
 
-    .controls label {
-      cursor: pointer;
-      font-size: 28px;
-      padding: 5px 10px;
-      background: rgba(0, 0, 0, 0.5);
+
+    .hero-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(200, 164, 126, 0.8);
+      border: none;
       color: #fff;
+      font-size: 30px;
+      padding: 8px 13px;
       border-radius: 50%;
-      margin: 0 5px;
+      cursor: pointer;
+      z-index: 20;
+      transition: background 0.2s;
+    }
+
+    .hero-btn:hover {
+      background: rgba(179, 141, 106, 0.9);
+    }
+
+    .hero-btn.prev {
+      left: 20px;
+    }
+
+    .hero-btn.next {
+      right: 20px;
     }
 
     /* SEARCH BAR */
@@ -290,15 +288,12 @@
 
   <div class="hero-slider" id="heroSlider">
     <div class="hero-wrapper" id="heroWrapper">
-      <img class="slide active" src="" alt="Image of a delicious spread of bakery items" />
-      <img class="slide" src="" alt="Close-up of fresh donuts" />
-      <img class="slide" src="" alt="Image of pastries" />
+      <img class="slide active" src="images/bread(menu) (3).jpg" alt="Image of a delicious spread of bakery items" />
+      <img class="slide" src="images/donuts(menu).jpg" alt="Close-up of fresh donuts" />
+      <img class="slide" src="images/pastry.jpg" alt="Image of pastries" />
     </div>
-   <div class="dots">
-    <label for="slide1"></label>
-    <label for="slide2"></label>
-    <label for="slide3"></label>
-  </div>
+    <button class="hero-btn prev" id="prevBtn">‹</button>
+    <button class="hero-btn next" id="nextBtn">›</button>
   </div>
 
   <div class="search-box">
@@ -378,7 +373,32 @@
   </div>
 </body>
 <script>
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  let sliderInterval;
 
+  const showSlide = (index) => {
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  };
+
+  const goToSlide = (index) => {
+    currentSlide = (index + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  };
+
+  const startSlider = () => {
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 3000);
+  };
+
+  nextBtn.onclick = () => { goToSlide(currentSlide + 1); startSlider(); };
+  prevBtn.onclick = () => { goToSlide(currentSlide - 1); startSlider(); };
+
+  startSlider();
+  showSlide(currentSlide);
   // Tabs & Scroll
   const menuTabs = document.getElementById('menuTabs');
   const tabs = menuTabs.querySelectorAll('div');
