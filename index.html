@@ -144,7 +144,8 @@
             font-size: 32px;
             color: #6b4f3c;
             margin-bottom: 30px;
-            text-align: center;
+            text-align: left;
+            padding-left: 10px;
         }
 
         .services-content {
@@ -177,7 +178,55 @@
             object-fit: cover;
             object-position: center;
         }
-        
+        .reviews {
+    width: 95%;
+    margin: 60px auto;
+}
+
+.reviews-heading {
+    font-size: 32px;
+    color: #6b4f3c;
+    margin-bottom: 30px;
+    text-align: left;
+    padding-left: 10px;
+}
+        .review-box {
+    background: #fff8f0;
+    flex: 0 0 220px; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.reviews-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+}
+
+.review-img {
+    width: 100%;
+    height: 120px;  
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.review-box h3 {
+    font-size: 20px;
+    color: #6b4f3c;
+    margin-bottom: 10px;
+}
+
+.stars {
+    font-size: 20px;
+    color: #f4c150; 
+}   
     </style>
 </head>
 
@@ -238,7 +287,7 @@
         <div class="services-content">
             <div class="services-text">
                 <p>
-                    AAt Bakers, we are dedicated to crafting freshly baked goods using only the finest, premium
+                    At Bakers, we are dedicated to crafting freshly baked goods using only the finest, premium
                     ingredients. Our offerings range from artisanal breads and decadent pastries to handcrafted donuts,
                     each created with precision, passion, and attention to detail. We strive to deliver an exceptional
                     culinary experience that combines quality, flavor, and creativity, ensuring every bite brings
@@ -253,21 +302,25 @@
         </div>
     </div>
   
+
 <div class="reviews">
     <h2 class="reviews-heading">Customer Reviews</h2>
     <div class="reviews-content">
         
         <div class="review-box">
+            <img src="images/Donutreview.jpg" alt="Donuts" class="review-img">
             <h3>Donuts</h3>
             <div class="stars">★★★★☆</div>
         </div>
         
         <div class="review-box">
+            <img src="images/Breadreview.jpg" alt="Bread" class="review-img">
             <h3>Bread</h3>
             <div class="stars">★★★★☆</div>
         </div>
         
         <div class="review-box">
+            <img src="images/Pastryreview.jpg" alt="Pastries" class="review-img">
             <h3>Pastries</h3>
             <div class="stars">★★★★★</div>
         </div>
