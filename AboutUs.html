@@ -3,39 +3,60 @@
 <head>
     <title>About Us - Bakery Delight</title>
     <style>
+        /* ===== GENERAL ===== */
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fff;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
             font-size: 18px;
         }
-        header,
-        footer {
-            background-color: #d7bd8f;
-            padding: 25px;
-            text-align: center;
-            color: white;
-            font-size: 20px;
+
+        /* HEADER */
+        header {
+            background: #f5e1c1;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
         }
-        .navbar {
-            background-color: #fbf7f5;
+
+        header img.logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .header-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 36px;
+            color: #6b4f3c;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #fff8f0;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
             width: 95%;
-            margin: 25px auto;
-            padding: 15px;
-            border-radius: 15px;
-            text-align: center;
+            margin: 15px auto;
         }
-        .navbar a {
-            margin: 0 20px;
+
+        nav a {
             text-decoration: none;
-            color: #947c4b;
-            font-size: 20px;
-        }
-        .navbar a:hover,
-        .navbar a.active {
             color: black;
-            border-bottom: 2px solid #947c4b;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 18px;
         }
+
+        nav a:hover,
+        nav a.active {
+            color: #6b4f3c;
+            border-bottom: 2px solid #6b4f3c;
+        }
+
+        /* HERO */
         .hero {
             width: 85%;
             margin: 50px auto;
@@ -44,51 +65,65 @@
             justify-content: space-between;
             gap: 40px;
         }
+
         .hero-text {
             width: 55%;
         }
+
         .hero img {
             width: 45%;
             max-height: 450px;
             object-fit: cover;
             border-radius: 20px;
         }
+
         .hero-text h1 {
             color: #947c4b;
             font-size: 38px;
         }
+
         .hero-text p {
             font-size: 25px;
             line-height: 1.8;
         }
+
+        /* SECTION */
         .section {
             width: 85%;
             margin: 60px auto;
         }
+
         .section h2 {
             color: #947c4b;
             margin-bottom: 25px;
             font-size: 28px;
         }
+
+        /* STORY */
         .story {
             display: flex;
             gap: 40px;
             align-items: center;
         }
+
         .story img {
             width: 45%;
             border-radius: 15px;
         }
+
         .story p {
             font-size: 25px;
             line-height: 1.8;
         }
+
+        /* SERVICES */
         .services {
             display: flex;
             gap: 30px;
             justify-content: space-between;
             flex-wrap: wrap;
         }
+
         .service-box {
             background-color: #fbf7f5;
             padding: 25px;
@@ -96,9 +131,11 @@
             width: 30%;
             transition: transform 0.3s;
         }
+
         .service-box:hover {
             transform: translateY(-5px);
         }
+
         .service-box img {
             width: 100%;
             aspect-ratio: 4 / 3;
@@ -106,47 +143,68 @@
             border-radius: 10px;
             background-color: transparent;
         }
+
         .service-box h3 {
             color: #947c4b;
-            font-size: 25px;           
+            font-size: 25px;
             margin-top: 15px;
         }
+
         .service-box p {
             font-size: 25px;
-            
             line-height: 1.7;
         }
+
+        /* WHY CHOOSE US */
         .why ul {
-            font-size: 25px; 
+            font-size: 25px;
             line-height: 2;
         }
+
+        /* TEAM */
         .team-names {
             text-align: center;
         }
+
         .team-names span {
             display: inline-block;
             margin: 12px;
             padding: 15px 30px;
             background-color: #fbf7f5;
             border-radius: 20px;
-            color: #947c4b;
+            color: #6b4f3c;
             font-weight: bold;
-            font-size: 25px;    
+            font-size: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #f5e1c1;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            color: #6b4f3c;
         }
     </style>
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <h1>Bakery Delight</h1>
-        <p>Passion Baked Into Every Detail </p>
+        <img src="images/Logo.png" alt="Bakery Logo" class="logo">
+        <div class="header-text">Bakery Delight</div>
     </header>
-    <div class="navbar">
+
+    <!-- NAVBAR -->
+    <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="login.html">Login</a>
         <a href="cart.html">Cart 🛒</a>
         <a href="about.html" class="active">About</a>
-    </div>
+    </nav>
+
+    <!-- HERO -->
     <div class="hero">
         <div class="hero-text">
             <h1>Welcome to Bakery Delight</h1>
@@ -157,8 +215,10 @@
                 Every product we make reflects our love for quality and care.
             </p>
         </div>
-        <img src="images/cakery.jpg" alt="Bakery Interior">
+        <img src="images/bakery.jpg" alt="Bakery Interior">
     </div>
+
+    <!-- OUR STORY -->
     <div class="section">
         <h2>Our Story</h2>
         <div class="story">
@@ -172,38 +232,36 @@
             </p>
         </div>
     </div>
+
+    <!-- SERVICES -->
     <div class="section">
         <h2>What We Do</h2>
         <div class="services">
             <div class="service-box">
-                <img src="images/donuts.jpg" alt="Custom Cakes">
-                <h3>Donut Specialist-Wasi Ahmed</h3>
+                <img src="images/donuts.jpg" alt="Donut Specialist">
+                <h3>Donut Specialist - Wasi Ahmed</h3>
                 <p>
-                    We design and bake custom cakes for birthdays, weddings,
-                    and special occasions. Each cake is carefully crafted
-                    to combine beautiful design with rich flavor.
+                    We design and bake custom donuts for birthdays and special occasions.
                 </p>
             </div>
             <div class="service-box">
-                <img src="images/breads.jpg" alt="Fresh Bread">
-                <h3> Bread Specialist-Tania Zubair</h3>
+                <img src="images/breads.jpg" alt="Bread Specialist">
+                <h3>Bread Specialist - Tania Zubair</h3>
                 <p>
-                    Our bread is baked fresh every day using traditional
-                    methods. Soft inside and golden outside, perfect for
-                    every meal.
+                    Freshly baked bread every day using traditional methods.
                 </p>
             </div>
             <div class="service-box">
-                <img src="images/pastries.jpg" alt="Pastry Specialists">
-                <h3> Pastry Specialist-Maidah Asif</h3>
+                <img src="images/pastries.jpg" alt="Pastry Specialist">
+                <h3>Pastry Specialist - Maidah Asif</h3>
                 <p>
-                    Our pastry specialists create delicious croissants,
-                    tarts, and desserts using premium ingredients and
-                    expert techniques, ensuring perfect taste every time.
+                    Delicious pastries, croissants, and tarts made with premium ingredients.
                 </p>
             </div>
         </div>
     </div>
+
+    <!-- WHY US -->
     <div class="section why">
         <h2>Why Choose Bakery Delight?</h2>
         <ul>
@@ -214,14 +272,18 @@
             <li>Clean and welcoming environment</li>
         </ul>
     </div>
+
+    <!-- TEAM -->
     <div class="section">
         <h2>Our Team</h2>
         <div class="team-names">
             <span>Maidah Asif</span>
             <span>Tania Zubair</span>
-            <span>Wasi Ahmed </span>
+            <span>Wasi Ahmed</span>
         </div>
     </div>
+
+    <!-- FOOTER -->
     <footer>
         © 2025 Bakery Delight
     </footer>
