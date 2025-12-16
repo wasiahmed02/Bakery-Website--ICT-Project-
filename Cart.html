@@ -223,6 +223,35 @@
             });
 
             cartTotalDisplay.textContent = `Rs.${total}`;
+        // Buttons functionality
+            cartItemsBody.querySelectorAll('button').forEach(btn => {
+                const name = btn.dataset.name;
+                const action = btn.dataset.action;
+
+                if (btn.classList.contains('remove-btn')) {
+                    btn.onclick = () => {
+                        const index = cart.findIndex(i => i.name === name);
+                        if (index > -1) cart.splice(index, 1);
+                        localStorage.setItem('bakeryCart', JSON.stringify(cart));
+                        renderCart();
+                    };
+                } else if (action) {
+                    btn.onclick = () => {
+                        const item = cart.find(i => i.name === name);
+                        if (item) {
+                            item.quantity += (action === 'increase' ? 1 : -1);
+                            if (item.quantity <= 0) {
+                                const idx = cart.findIndex(i => i.name === name);
+                                cart.splice(idx, 1);
+                            }
+                            localStorage.setItem('bakeryCart', JSON.stringify(cart));
+                            renderCart();
+                        }
+                    };
+                }
+            });
         }
+
+        renderCart(); 
             </script>
 </html>
