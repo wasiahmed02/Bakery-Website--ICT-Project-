@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu</title>
+  <style>
+    header,
+    footer {
+      background-color: #d7bd8f;
+      padding: 12px;
+      text-align: center;
+      font-size: 24px;
+      font-family: Arial;
+      color: white;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f6efe6;
+      color: #543b27;
+    }
+
+    .navbar {
+      background-color: #fbf7f5;
+      width: 98%;
+      margin: px auto;
+      padding: 10px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    /* Navbar links */
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #947c4b;
+      /* same as header/footer */
+      font-size: 18px;
+      font-family: Arial;
+      padding-bottom: px;
+      transition: 0.3s;
+    }
+
+    /* Hover effects */
+    .navbar a:hover {
+      color: black;
+      /* text becomes white */
+      border-bottom: 2px solid #947c4b;
+      /* underline with same brown color */
+    }
+
+    /* HERO SLIDER */
+    .hero-slider {
+      width: 100%;
+      height: 55vh;
+      position: relative;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .hero-wrapper {
+      display: flex;
+      height: 100%;
+      position: relative;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .hero-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(200, 164, 126, 0.8);
+      border: none;
+      color: #fff;
+      font-size: 30px;
+      padding: 8px 13px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 20;
+      transition: background 0.2s;
+    }
+
+    .hero-btn:hover {
+      background: rgba(179, 141, 106, 0.9);
+    }
+
+    .hero-btn.prev {
+      left: 20px;
+    }
+
+    .hero-btn.next {
+      right: 20px;
+    }
