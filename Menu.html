@@ -8,7 +8,7 @@
   <style>
     header,
     footer {
-      background-color: #d7bd8f;
+      background-color: #f5e1c1;
       padding: 12px;
       text-align: center;
       font-size: 24px;
@@ -24,9 +24,9 @@
     }
 
     .navbar {
-      background-color: #fbf7f5;
+      background-color: #fff8f0;
       width: 95%;
-      margin:  auto;
+      margin: auto;
       padding: 10px;
       border-radius: 15px;
       text-align: center;
@@ -53,12 +53,25 @@
     }
 
     /* HERO SLIDER */
+
     .hero-slider {
       width: 100%;
       height: 55vh;
       position: relative;
       overflow: hidden;
       margin-top: 10px;
+
+      /* Curved borders */
+      border-radius: 16px;
+
+      /* Smooth hover animation */
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    /* Hover effect */
+    .hero-slider:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
 
     .hero-wrapper {
@@ -67,48 +80,70 @@
       position: relative;
     }
 
+
+    /* Slides */
     .slide {
-      min-width: 100%;
+      width: 100%;
       height: 100%;
-      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* Manual slide switching */
+    #slide1:checked~.hero-wrapper {
+      transform: translateX(0);
+    }
+
+    #slide2:checked~.hero-wrapper {
+      transform: translateX(-100%);
+    }
+
+    #slide3:checked~.hero-wrapper {
+      transform: translateX(-200%);
+    }
+
+    /* Auto sliding */
+    .hero-wrapper {
+      animation: autoSlide 4s infinite;
+    }
+
+    @keyframes autoSlide {
+
+      0%,
+      33% {
+        transform: translateX(0);
+      }
+
+      34%,
+      66% {
+        transform: translateX(-100%);
+      }
+
+      67%,
+      100% {
+        transform: translateX(-200%);
+      }
+    }
+
+    /* Pause on hover */
+    .hero-slider:hover .hero-wrapper {
+      animation-play-state: paused;
+    }
+
+    /* Controls */
+    .controls {
       position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      z-index: 1;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-      z-index: 2;
-    }
-
-    .hero-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(200, 164, 126, 0.8);
-      border: none;
-      color: #fff;
-      font-size: 30px;
-      padding: 8px 13px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 20;
-      transition: background 0.2s;
-    }
-
-    .hero-btn:hover {
-      background: rgba(179, 141, 106, 0.9);
-    }
-
-    .hero-btn.prev {
-      left: 20px;
-    }
-
-    .hero-btn.next {
+      bottom: 20px;
       right: 20px;
+    }
+
+    .controls label {
+      cursor: pointer;
+      font-size: 28px;
+      padding: 5px 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border-radius: 50%;
+      margin: 0 5px;
     }
 
     /* SEARCH BAR */
@@ -230,7 +265,8 @@
     .product-card button:hover {
       background: #b38d6a;
     }
-     .fade-section {
+
+    .fade-section {
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.6s ease-in-out;
@@ -256,10 +292,13 @@
     <div class="hero-wrapper" id="heroWrapper">
       <img class="slide active" src="" alt="Image of a delicious spread of bakery items" />
       <img class="slide" src="" alt="Close-up of fresh donuts" />
-      <img class="slide" src="" alt="Image of hot beverages and pastries" />
+      <img class="slide" src="" alt="Image of pastries" />
     </div>
-    <button class="hero-btn prev" id="prevBtn">‹</button>
-    <button class="hero-btn next" id="nextBtn">›</button>
+   <div class="dots">
+    <label for="slide1"></label>
+    <label for="slide2"></label>
+    <label for="slide3"></label>
+  </div>
   </div>
 
   <div class="search-box">
@@ -268,10 +307,7 @@
   <div class="menu-slider" id="menuTabs">
     <div data-target="donuts-section" class="active-tab">Donuts</div>
     <div data-target="pastries-section">Pastries</div>
-    <div data-target="drinks-section">Drinks</div>
-    <div data-target="cakes-section">Cakes</div>
     <div data-target="breads-section">Breads</div>
-    <div data-target="specials-section">Specials</div>
   </div>
   <div class="section-title fade-section">Trending Products</div>
   <div class="trending fade-section show" id="trendingProducts">
@@ -287,7 +323,7 @@
     </div>
     <div class="product-card">
       <img src="images/cold-coffee-with-ice-cream.jpg" alt="Iced Coffee" />
-      <h4>Iced Coffee</h4>
+      <h4>Sourdough bread</h4>
       <button>Add to Cart</button>
     </div>
   </div>
@@ -327,37 +363,7 @@
       <button>Add to Cart</button>
     </div>
   </div>
-  <div id="drinks-section" class="category-block fade-section">Drinks</div>
-  <div class="items-grid fade-section" id="drinksItems">
-    <div class="product-card">
-      <img src="" alt="Iced Coffee" />
-      <h4>Iced Coffee</h4>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="" alt="Caramel Latte" />
-      <h4>Caramel Latte</h4>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="" alt="Cold Brew" />
-      <h4>Cold Brew</h4>
-      <button>Add to Cart</button>
-    </div>
-  </div>
-  <div id="cakes-section" class="category-block fade-section">Cakes</div>
-  <div class="items-grid fade-section" id="cakesItems">
-    <div class="product-card">
-      <img src="" alt="Chocolate Cake Slice" />
-      <h4>Chocolate Slice</h4><button>Add to Cart</button>
-    </div>
-    <div class="product-card"><img src="" alt="Cheesecake" />
-      <h4>Cheesecake</h4><button>Add to Cart</button>
-    </div>
-    <div class="product-card"><img src="" alt="Birthday Cake" />
-      <h4>Birthday Cake</h4><button>Add to Cart</button>
-    </div>
-  </div>
+
   <div id="breads-section" class="category-block fade-section">Breads</div>
   <div class="items-grid fade-section" id="breadsItems">
     <div class="product-card"><img src="" alt="Sourdough Loaf" />
@@ -372,32 +378,7 @@
   </div>
 </body>
 <script>
-  const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
-  const totalSlides = slides.length;
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  let sliderInterval;
 
-  const showSlide = (index) => {
-    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-  };
-
-  const goToSlide = (index) => {
-    currentSlide = (index + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-  };
-
-  const startSlider = () => {
-    clearInterval(sliderInterval);
-    sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 3000);
-  };
-
-  nextBtn.onclick = () => { goToSlide(currentSlide + 1); startSlider(); };
-  prevBtn.onclick = () => { goToSlide(currentSlide - 1); startSlider(); };
-
-  startSlider();
-  showSlide(currentSlide);
   // Tabs & Scroll
   const menuTabs = document.getElementById('menuTabs');
   const tabs = menuTabs.querySelectorAll('div');
@@ -409,27 +390,27 @@
         tabs.forEach(t => t.classList.remove('active-tab'));
         tab.classList.add('active-tab');
       }
-       });
-      });
-       const productCards = document.querySelectorAll('.product-card');
-      const searchInput = document.getElementById('searchInput');
-      searchInput.addEventListener('input', () => {
-        const val = searchInput.value.toLowerCase();
-        productCards.forEach(card => {
-          const title = card.querySelector('h4').textContent.toLowerCase();
-          card.style.display = title.includes(val) ? 'flex' : 'none';
-        });
-      });
-      // Fade-in sections
-      const fadeSections = document.querySelectorAll('.category-block, .items-grid, .section-title');
-      const reveal = () => {
-        fadeSections.forEach(sec => {
-          if (!sec.classList.contains('show')) {
-            const rect = sec.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) sec.classList.add('show');
-          }
-        });
-      };
-      window.addEventListener('scroll', reveal);
-      reveal();
+    });
+  });
+  const productCards = document.querySelectorAll('.product-card');
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    const val = searchInput.value.toLowerCase();
+    productCards.forEach(card => {
+      const title = card.querySelector('h4').textContent.toLowerCase();
+      card.style.display = title.includes(val) ? 'flex' : 'none';
+    });
+  });
+  // Fade-in sections
+  const fadeSections = document.querySelectorAll('.category-block, .items-grid, .section-title');
+  const reveal = () => {
+    fadeSections.forEach(sec => {
+      if (!sec.classList.contains('show')) {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) sec.classList.add('show');
+      }
+    });
+  };
+  window.addEventListener('scroll', reveal);
+  reveal();
 </script>
