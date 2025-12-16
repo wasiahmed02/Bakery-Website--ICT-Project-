@@ -6,15 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu</title>
   <style>
-    header,
-    footer {
-      background-color: #f5e1c1;
-      padding: 12px;
-      text-align: center;
-      font-size: 24px;
-      font-family: Arial;
-      color: white;
+    header img.logo {
+      height: 40px;
+      display: block;
+      margin: 0;
     }
+
+    header {
+      background: #f5e1c1;
+      display: flex;
+      align-items: center;
+      padding: 8px 20px;
+    }
+
+    footer {
+      background: #f5e1c1;
+      padding: 8px 20px;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      color: #6b4f3c;
+    }
+
+    .header-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 36px;
+      color: #6b4f3c;
+      text-align: center;
+      flex: 1;
+    }
+
 
     body {
       margin: 0;
@@ -277,7 +298,10 @@
   </style>
 
 <body>
-  <header>Bakery Delight</header>
+  <header>
+    <img src="images/Logo.png" alt="Baker's Bakery Logo" class="logo">
+    <div class="header-text">Bakers</div>
+  </header>
   <div class="navbar">
     <a href="index.html">Home</a>
     <a href="AboutUs.html">About Us</a>
@@ -317,7 +341,7 @@
       <button>Add to Cart</button>
     </div>
     <div class="product-card">
-      <img src="images/cold-coffee-with-ice-cream.jpg" alt="Iced Coffee" />
+      <img src="images/sourdough.jpg" alt="Iced Coffee" />
       <h4>Sourdough bread</h4>
       <button>Add to Cart</button>
     </div>
@@ -343,17 +367,17 @@
   <div id="pastries-section" class="category-block fade-section">Pastries</div>
   <div class="items-grid fade-section" id="pastriesItems">
     <div class="product-card">
-      <img src="" alt="Vanilla Pastry" />
+      <img src="images/vanilla_pastry.jpg" alt="Vanilla Pastry" />
       <h4>Vanilla Pastry</h4>
       <button>Add to Cart</button>
     </div>
     <div class="product-card">
-      <img src="" alt="Chocolate Pastry" />
+      <img src="images/chocolate-pastry.jpg" alt="Chocolate Pastry" />
       <h4>Chocolate Pastry</h4>
       <button>Add to Cart</button>
     </div>
     <div class="product-card">
-      <img src="" alt="Red Velvet Pastry" />
+      <img src="images/red-velvet-pastry.jpg" alt="Red Velvet Pastry" />
       <h4>Red Velvet Pastry</h4>
       <button>Add to Cart</button>
     </div>
@@ -361,16 +385,18 @@
 
   <div id="breads-section" class="category-block fade-section">Breads</div>
   <div class="items-grid fade-section" id="breadsItems">
-    <div class="product-card"><img src="" alt="Sourdough Loaf" />
+    <div class="product-card"><img src="images/sourdough.jpg" alt="Sourdough Loaf" />
       <h4>Sourdough Loaf</h4><button>Add to Cart</button>
     </div>
-    <div class="product-card"><img src="" alt="Cinnamon Roll" />
+    <div class="product-card"><img src="images/cinnamon.jpg" alt="Cinnamon Roll" />
       <h4>Cinnamon Roll</h4><button>Add to Cart</button>
     </div>
-    <div class="product-card"><img src="" alt="Baguette" />
+    <div class="product-card"><img src="images/Baguette.jpg" alt="Baguette" />
       <h4>Baguette</h4><button>Add to Cart</button>
     </div>
   </div>
+  <footer>© 2025 Bakery Website</footer>
+
 </body>
 <script>
   const slides = document.querySelectorAll('.slide');
