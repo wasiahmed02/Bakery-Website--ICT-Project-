@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Bakery Delight</title>
     <style>
         body {
@@ -15,11 +17,12 @@
             background: #f5e1c1;
             display: flex;
             align-items: center;
-            padding: 10px 20px;
+            padding: 8px 20px;
         }
 
         header img.logo {
-            height: 50px;
+            height: 40px;
+            display: block;
             margin-right: 15px;
         }
 
@@ -32,27 +35,28 @@
         }
 
         /* NAVBAR */
-        nav {
-            background: #fff8f0;
-            text-align: center;
-            padding: 12px;
-            border-radius: 12px;
+        .navbar {
+            background-color: #fff8f0;
             width: 95%;
-            margin: 15px auto;
+            margin: auto;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
         }
 
-        nav a {
-            text-decoration: none;
-            color: black;
+        .navbar a {
             margin: 0 15px;
-            font-weight: 600;
+            text-decoration: none;
+            color: #947c4b;
             font-size: 18px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        nav a:hover,
-        nav a.active {
-            color: #6b4f3c;
-            border-bottom: 2px solid #6b4f3c;
+        .navbar a:hover,
+        .navbar a.active {
+            color: black;
+            border-bottom: 2px solid #947c4b;
         }
 
         /* HERO */
@@ -191,17 +195,17 @@
     <!-- HEADER -->
     <header>
         <img src="images/Logo.png" alt="Bakery Logo" class="logo">
-        <div class="header-text">Bakery Delight</div>
+        <div class="header-text">Bakers</div>
     </header>
 
     <!-- NAVBAR -->
-    <nav>
+    <div class="navbar">
         <a href="index.html">Home</a>
-        <a href="AboutUs.html">About Us</a>
+        <a href="AboutUs.html" class="active">About Us</a>
         <a href="Menu.html">Menu</a>
-        <a href="cart.html">Cart </a>
-        <a href="Login.html" class="active">Login</a>
-    </nav>
+        <a href="cart.html">Cart</a>
+        <a href="Login.html">Login</a>
+    </div>
 
     <!-- HERO -->
     <div class="hero">
@@ -284,7 +288,7 @@
 
     <!-- FOOTER -->
     <footer>
-        © 2025 Bakery Delight
+        © 2025 Bakers
     </footer>
 </body>
 </html>
