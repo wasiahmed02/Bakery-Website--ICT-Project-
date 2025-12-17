@@ -44,24 +44,34 @@
         }
 
 
-        /* Navbar */
-        nav {
-            background: #fff8f0;
-            text-align: center;
-            padding: 10px;
-            border-radius: 12px;
-            width: 95%;
-            margin: 15px auto;
-            height:20px;
-        }
+        .navbar {
+      background-color: #fff8f0;
+      width: 95%;
+      margin: auto;
+      padding: 10px;
+      border-radius: 15px;
+      text-align: center;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #947c4b;
-            margin: 0 12px;
-            font-weight: 600;
-            font-size: 19px;
-        }
+   
+    .navbar a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #947c4b;
+      
+      font-size: 18px;
+      font-family: Arial;
+      padding-bottom: px;
+      transition: 0.3s;
+    }
+
+    
+    .navbar a:hover {
+      color: black;
+     
+      border-bottom: 2px solid #947c4b;
+      
+    }
 
         /* Carousel */
         .carousel {
@@ -152,7 +162,7 @@
 
         .services-content {
             display: flex;
-            align-items: center;
+            align-items: top;
             gap: 40px;
             flex-wrap: wrap;
         }
@@ -282,28 +292,28 @@
     </header>
 
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="AboutUs.html">About Us</a>
-        <a href="Menu.html">Menu</a>
-        <a href="Cart.html">Cart</a>
-        <a href="Login.html">Login</a>
-    </nav>
+    <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="AboutUs.html">About Us</a>
+    <a href="Menu.html">Menu</a>
+    <a href="Cart.html">Cart (<span id="cartCounter">0</span>)</a>
+    <a href="Login.html">Login</a>
+  </div>
 
    
     <div class="carousel">
         <div class="slides">
             <div class="slide">
                 <img src="images/Donut(h).jpg" alt="Donut">
-                <div class="text"> - Buy one get one FREE</div>
+                <div class="text"> - Freshly Baked, Just for You</div>
             </div>
             <div class="slide">
-                <img src="images/Bread(h) (2).jpg" alt="Bread">
-                <div class="text"> - 50% OFF on Bread items</div>
+                <img src="images/Bread(h) (4).jpg" alt="Bread">
+                <div class="text"> - Turning Ingredients into Smiles</div>
             </div>
             <div class="slide">
                 <img src="images/Pastry(h).jpg" alt="Pastry">
-                <div class="text"> - Most Trending</div>
+                <div class="text"> - Freshness You can Taste</div>
             </div>
         </div>
     </div>
