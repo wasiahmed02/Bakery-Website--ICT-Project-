@@ -237,6 +237,11 @@
     color: #6b4f3c;
     margin-bottom: 10px;
 }
+.review-box:hover {
+    transform: scale(1.08) translateY(-6px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
 
 .stars {
     font-size: 20px;
@@ -477,6 +482,15 @@
 
     </div>
 </div>
+<script>
+window.onload = function () {
+    if (localStorage.getItem("justLoggedIn") === "true") {
+        alert("Logged in successfully!");
+        localStorage.removeItem("justLoggedIn");
+    }
+};
+</script>
+
     <footer>© 2025 Bakery Website</footer>
 
 </body>
