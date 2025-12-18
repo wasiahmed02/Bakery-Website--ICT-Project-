@@ -484,6 +484,12 @@
 
 </body>
 <script>
+  window.onload = function () {
+    if (localStorage.getItem("justLoggedIn") === "true") {
+        alert("Logged in successfully!");
+        localStorage.removeItem("justLoggedIn");
+    }
+};
   // Tabs & Scroll
   const menuTabs = document.getElementById('menuTabs');
   const tabs = menuTabs.querySelectorAll('div');
