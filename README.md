@@ -1,4 +1,5 @@
 # Bakery Website (ICT-Project)
+**Project Website:** [Visit Bakers](https://wasiahmed02.github.io/Bakery-Website--ICT-Project-/)
 # Project Description
 This project is a basic web development project using HTML, CSS, and JavaScript. The goal was to create a responsive and interactive bakery website that demonstrates practical web development skills learned during the semester.  
 
