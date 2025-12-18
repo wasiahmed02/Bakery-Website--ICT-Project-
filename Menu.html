@@ -13,19 +13,20 @@
     }
 
     header {
-            background: #f5e1c1;
-            display: flex;
-            align-items: center;
-            padding: 8px 20px;
-            height:60px;
-        }
-       .header-text {
-            font-family: 'Pacifico', cursive;
-            font-size: 36px;
-            color: #6b4f3c;
-            text-align: center;
-            flex: 1;
-        }
+      background: #f5e1c1;
+      display: flex;
+      align-items: center;
+      padding: 8px 20px;
+      height: 60px;
+    }
+
+    .header-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 36px;
+      color: #6b4f3c;
+      text-align: center;
+      flex: 1;
+    }
 
     footer {
       background: #f5e1c1;
@@ -47,7 +48,7 @@
 
     body {
       margin: 0;
-      font-family:  Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background: #f6efe6;
       color: #543b27;
     }
@@ -61,24 +62,24 @@
       text-align: center;
     }
 
-   
+
     .navbar a {
       margin: 0 15px;
       text-decoration: none;
       color: #947c4b;
-      
+
       font-size: 18px;
       font-family: Arial;
       padding-bottom: px;
       transition: 0.3s;
     }
 
-    
+
     .navbar a:hover {
       color: black;
-     
+
       border-bottom: 2px solid #947c4b;
-      
+
     }
 
 
@@ -90,88 +91,57 @@
       overflow: hidden;
       border-radius: 16px;
       position: relative;
-
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
+
+    .hero-wrapper {
+      display: flex;
+      width: 100%;
+      /* 3 slides */
+      height: 100%;
+      animation: slideAnim 9s infinite;
+      /* 3s per slide */
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes slideAnim {
+      0% {
+        transform: translateX(0%);
+      }
+
+      33% {
+        transform: translateX(0%);
+      }
+
+      36% {
+        transform: translateX(-100%);
+      }
+
+      66% {
+        transform: translateX(-100%);
+      }
+
+      69% {
+        transform: translateX(-200%);
+      }
+
+      99% {
+        transform: translateX(-200%);
+      }
+
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
 
     .hero-slider:hover {
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
-    }
-
-
-
-    .slide {
-      min-width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      z-index: 1;
-      transition: opacity 1s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-      z-index: 2;
-    }
-
-    .hero-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(200, 164, 126, 0.8);
-      border: none;
-      color: #fff;
-      font-size: 30px;
-      padding: 8px 13px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 20;
-      transition: background 0.2s;
-    }
-
-    .hero-btn:hover {
-      background: rgba(179, 141, 106, 0.9);
-    }
-
-    .hero-btn.prev {
-      left: 20px;
-    }
-
-    .hero-btn.next {
-      right: 20px;
-    }
-
-
-    .hero-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(200, 164, 126, 0.8);
-      border: none;
-      color: #fff;
-      font-size: 30px;
-      padding: 8px 13px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 20;
-      transition: background 0.2s;
-    }
-
-    .hero-btn:hover {
-      background: rgba(179, 141, 106, 0.9);
-    }
-
-    .hero-btn.prev {
-      left: 20px;
-    }
-
-    .hero-btn.next {
-      right: 20px;
     }
 
     /* SEARCH BAR */
@@ -294,15 +264,72 @@
       background: #b38d6a;
     }
 
+
     .fade-section {
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.6s ease-in-out;
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.3s;
+      /* optional */
     }
 
-    .fade-section.show {
-      opacity: 1;
-      transform: translateY(0);
+    .fade-section:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    .fade-section:nth-child(even) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .sub-footer {
+      width: 95%;
+      margin: 40px auto 7px auto;
+      background: #fff5e1;
+      border-radius: 18px 18px 0 0;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .sub-footer-left {
+      font-size: 16px;
+      color: #6b4f3c;
+      max-width: 60%;
+      line-height: 1.6;
+    }
+
+    .sub-footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .person-img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .person-name {
+      font-size: 16px;
+      color: #6b4f3c;
+      font-weight: 600;
     }
   </style>
 
@@ -427,36 +454,36 @@
       <button>Add to Cart</button>
     </div>
   </div>
+  <div class="sub-footer">
+
+    <div class="sub-footer-left">
+      <strong>Crafted with love & passion.</strong><br>
+      Bringing fresh flavors, warm moments, and sweet memories to your table every day.
+    </div>
+
+    <div class="sub-footer-right">
+
+      <div class="person">
+
+        <div class="person-name">Group Leader: Wasi Ahmed</div>
+      </div>
+
+      <div class="person">
+
+        <div class="person-name">Teamate-1: Maidah Asif</div>
+      </div>
+
+      <div class="person">
+
+        <div class="person-name">Teamate-2: Tania Zubair</div>
+      </div>
+
+    </div>
+  </div>
   <footer>© 2025 Bakery Website</footer>
 
 </body>
 <script>
-  const slides = document.querySelectorAll('.slide');
-  let currentSlide = 0;
-  const totalSlides = slides.length;
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  let sliderInterval;
-
-  const showSlide = (index) => {
-    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-  };
-
-  const goToSlide = (index) => {
-    currentSlide = (index + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-  };
-
-  const startSlider = () => {
-    clearInterval(sliderInterval);
-    sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 3000);
-  };
-
-  nextBtn.onclick = () => { goToSlide(currentSlide + 1); startSlider(); };
-  prevBtn.onclick = () => { goToSlide(currentSlide - 1); startSlider(); };
-
-  startSlider();
-  showSlide(currentSlide);
   // Tabs & Scroll
   const menuTabs = document.getElementById('menuTabs');
   const tabs = menuTabs.querySelectorAll('div');
@@ -479,18 +506,6 @@
       card.style.display = title.includes(val) ? 'flex' : 'none';
     });
   });
-  // Fade-in sections
-  const fadeSections = document.querySelectorAll('.category-block, .items-grid, .section-title');
-  const reveal = () => {
-    fadeSections.forEach(sec => {
-      if (!sec.classList.contains('show')) {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) sec.classList.add('show');
-      }
-    });
-  };
-  window.addEventListener('scroll', reveal);
-  reveal();
   // CART FUNCTIONALITY
   const cartCounter = document.getElementById('cartCounter');
   const addButtons = document.querySelectorAll('.product-card button');
