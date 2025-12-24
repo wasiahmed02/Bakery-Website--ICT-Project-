@@ -1,0 +1,205 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bakeryy_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
+    $confirm = $_POST['confirm_password'];
+
+    if ($pass !== $confirm) {
+        echo "<script>alert('Passwords do not match');</script>";
+    } else {
+        $hashed = password_hash($pass, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO users (fullname, email, password)
+                VALUES ('$fullname', '$email', '$hashed')";
+
+        if ($conn->query($sql) === TRUE) {
+            header("Location: Login.html");
+            exit();
+        } else {
+            echo "<script>alert('Email already exists');</script>";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up | Bakers</title>
+
+    <style>
+        header img.logo {
+            height: 40px;
+            display: block;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #f5e1c1;
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+            height: 60px;
+        }
+
+        .header-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 36px;
+            color: #6b4f3c;
+            text-align: center;
+            flex: 1;
+        }
+
+        .navbar {
+            background-color: #fff8f0;
+            width: 95%;
+            margin: 15px auto;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #947c4b;
+            font-size: 18px;
+            font-family: Arial;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: black;
+            border-bottom: 2px solid #947c4b;
+        }
+
+        .signup-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-box {
+            background: #fff8f0;
+            width: 380px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .signup-box h2 {
+            color: #6b4f3c;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .signup-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .signup-box button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #f5e1c1;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            color: #6b4f3c;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .signup-box button:hover {
+            background: #e7cfa9;
+        }
+
+        .signup-box p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .signup-box a {
+            color: #6b4f3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #f5e1c1;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #6b4f3c;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/Logo.jpg" class="logo" loading="lazy" alt="Bakers Logo">
+        <div class="header-text">Bakers</div>
+    </header>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="AboutUs.html">About Us</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Cart.html">Cart</a>
+        <a href="Login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+
+    <div class="signup-wrapper">
+        <div class="signup-box">
+            <h2>Create Account</h2>
+
+            <form action="signup.php" method="POST">
+               <input type="text" name="fullname" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="Login.html">Login</a></p>
+        </div>
+    </div>
+
+    <footer>© 2025 Bakery Website</footer>
+
+    
+
+</body>
+</html>
